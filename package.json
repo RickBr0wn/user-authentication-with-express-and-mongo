@@ -9,8 +9,10 @@
     "devstart": "nodemon ./bin/www"
   },
   "dependencies": {
+    "bcrypt": "^1.0.3",
     "body-parser": "^1.13.3",
     "express": "^4.13.4",
+    "express-session": "^1.15.6",
     "pug": "^2.0.0-beta2"
   },
   "license": "MIT",
