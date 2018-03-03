@@ -27,6 +27,23 @@ router.post('/register', function(req, res, next){
         err.status = 400;
         return next(err);
       }
+      // all fields = true, passwords match = true
+      // create oblect with form input
+      var userData = {
+        email: req.body.email,
+        name: req.body.name,
+        favoriteBook: req.body.favoriteBook,
+        password: req.body.password
+      }
+
+      // use schema's 'create' method to insert the object into mongoDB
+      User.create(userData, function(error, user){
+        if(error){
+          return next(err);
+        }else{
+          return res.redirect('/profile');
+        }
+      });
     }else{
       // all fields = false
       var err = new Error('All fields required.');
