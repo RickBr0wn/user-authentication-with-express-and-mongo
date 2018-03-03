@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
 var session = require('express-session');
 var app = express();
 
+// middle ware
 // use sessions for tracking logins
 app.use(session({
   secret: 'Rick Brown 2018',
