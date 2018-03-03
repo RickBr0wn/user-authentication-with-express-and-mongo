@@ -94,6 +94,9 @@ a:hover {
 	margin-right: 18px;
 	border: solid 2px rgba(255,255,255, .75);
 }
+.img-lrg{
+	width:150px;
+}
 .options {
 	display: none;
 }
@@ -117,9 +120,9 @@ a:hover {
 /* Media Queries */
 
 @media (min-width: 0) and (max-width: 47em) {
-	.navbar {
+	/* .navbar {
 		background: #1d2a33;
-	}
+	} */
 	.nav-items .nav-item {
 		float: none;
 	}
