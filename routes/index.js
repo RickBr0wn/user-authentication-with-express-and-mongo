@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var User = require('../models/user');
 
 // GET /
 router.get('/', function(req, res, next) {
@@ -12,8 +13,26 @@ router.get('/register', function(req, res, next){
 });
 
 // POST /register
-router.post('/register', function(res, req, next){
-  return res.send('User created');
+router.post('/register', function(req, res, next){
+  // check if all fields have been entered
+  if(req.body.email &&
+    req.body.name &&
+    req.body.favoriteBook &&
+    req.body.password &&
+    req.body.confirmPassword){
+      // all fields = true
+      // check if passwords match
+      if(req.body.password !== req.body.confirmPassword){
+        var err = new Error('Passwords do not match.');
+        err.status = 400;
+        return next(err);
+      }
+    }else{
+      // all fields = false
+      var err = new Error('All fields required.');
+      err.status = 400;
+      return next(err);
+    }
 });
 
 // GET /about
